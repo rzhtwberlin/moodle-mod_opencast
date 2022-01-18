@@ -88,6 +88,10 @@ if ($moduleinstance->type == opencasttype::EPISODE) {
     output_helper::output_episode($moduleinstance->ocinstanceid, $moduleinstance->opencastid, $moduleinstance->id);
 } else if ($moduleinstance->type == opencasttype::SERIES) {
     if ($episode) {
+        if(\tool_opencast\local\hidden_videos_api::is_video_hidden($moduleinstance->ocinstanceid, $moduleinstance->opencastid, $episode)) {
+            throw new moodle_exception('noviewpermission', 'mod_opencast');
+        }
+
         output_helper::output_episode($moduleinstance->ocinstanceid, $episode, $moduleinstance->id, $moduleinstance->opencastid);
     } else {
         output_helper::output_series($moduleinstance->ocinstanceid, $moduleinstance->opencastid, $moduleinstance->name);

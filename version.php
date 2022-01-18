@@ -30,5 +30,5 @@ $plugin->version = 2021122000;
 $plugin->requires = 2019111800;
 $plugin->maturity = MATURITY_STABLE;
 $plugin->dependencies = array(
-    'tool_opencast' => 2021091200
+    'tool_opencast' => 2022011801
 );

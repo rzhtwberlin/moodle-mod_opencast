@@ -30,6 +30,7 @@ use DateTime;
 use mod_opencast\output\renderer;
 use pix_icon;
 use stdClass;
+use tool_opencast\local\hidden_videos_api;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -213,6 +214,11 @@ class output_helper
 
         $channel = get_config('mod_opencast', 'channel_' . $ocinstanceid);
         foreach ($seriesjson as $event) {
+            // Check if video has been hidden.
+            if (hidden_videos_api::is_video_hidden($ocinstanceid, $event->is_part_of, $event->identifier)) {
+                continue;
+            }
+
             $findduration = !$event->duration;
             $video = new \stdClass();
             $url = null;

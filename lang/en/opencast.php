@@ -43,6 +43,8 @@ $string['manualocid'] = 'Directly enter the Opencast ID of the series/episode';
 $string['modulename'] = 'Video (Opencast)';
 $string['modulenameplural'] = 'Videos (Opencast)';
 
+$string['noviewpermission'] = 'You don\'t have the permission to view this video.';
+
 $string['ocinstance'] = 'Opencast instance';
 $string['opencastname'] = 'Opencast Video Provider: {$a}';
 $string['opencast:addinstance'] = 'Add a new Video (Opencast) instance';
